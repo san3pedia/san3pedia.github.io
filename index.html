@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portofolio Pengembang Web</title>
+<style>
+:root {
+  box-sizing: border-box;
+  --bg: #f7f7f5;
+  --surface: #ffffff;
+  --text: #1a1a1a;
+  --muted: #5f6368;
+  --accent: #2563eb;
+  --border: #e4e4e0;
+  color-scheme: light;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1115;
+    --surface: #181b22;
+    --text: #f1f1f1;
+    --muted: #9aa0a6;
+    --accent: #60a5fa;
+    --border: #2a2e37;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1115;
+  --surface: #181b22;
+  --text: #f1f1f1;
+  --muted: #9aa0a6;
+  --accent: #60a5fa;
+  --border: #2a2e37;
+  color-scheme: dark;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+a { color: var(--accent); text-decoration: none; }
+.container { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+header.nav {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.nav .container {
+  display: flex; justify-content: space-between; align-items: center;
+  height: 60px; flex-wrap: wrap;
+}
+.logo { font-weight: 700; color: var(--text); }
+.nav ul { list-style: none; display: flex; gap: 20px; font-size: 0.95rem; }
+.nav ul a { color: var(--muted); }
+.nav ul a:hover { color: var(--accent); }
+
+.hero { padding: 96px 0 72px; }
+.hero .tag {
+  display: inline-block; font-size: 0.85rem; color: var(--accent);
+  border: 1px solid var(--accent); border-radius: 999px; padding: 4px 12px; margin-bottom: 20px;
+}
+.hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.15; margin-bottom: 16px; }
+.hero p { color: var(--muted); max-width: 620px; font-size: 1.1rem; margin-bottom: 28px; }
+.btn {
+  display: inline-block; padding: 12px 22px; border-radius: 8px;
+  font-weight: 600; font-size: 0.95rem; margin-right: 10px; margin-bottom: 10px;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-ghost { border: 1px solid var(--border); color: var(--text); }
+
+section { padding: 64px 0; border-top: 1px solid var(--border); }
+section h2 { font-size: 1.7rem; margin-bottom: 10px; }
+section .lead { color: var(--muted); margin-bottom: 36px; max-width: 640px; }
+
+.grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px;
+}
+.card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+.card p { color: var(--muted); font-size: 0.95rem; }
+.card .price { margin-top: 14px; font-weight: 600; color: var(--accent); font-size: 0.95rem; }
+
+.project .thumb {
+  height: 160px; border-radius: 8px; margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--accent), #7c3aed);
+  opacity: 0.85;
+}
+.project .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 6px; }
+.project .stack { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+.stack span {
+  font-size: 0.75rem; background: var(--bg); border: 1px solid var(--border);
+  padding: 3px 9px; border-radius: 6px; color: var(--muted);
+}
+
+.about { display: grid; gap: 32px; grid-template-columns: 1fr; }
+@media (min-width: 760px) { .about { grid-template-columns: 1fr 1fr; } }
+.about p { color: var(--muted); margin-bottom: 14px; }
+.skills { display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; }
+.skills span {
+  background: var(--surface); border: 1px solid var(--border);
+  padding: 6px 12px; border-radius: 8px; font-size: 0.9rem;
+}
+
+.steps { counter-reset: step; }
+.steps .card::before {
+  counter-increment: step; content: counter(step, decimal-leading-zero);
+  display: block; font-size: 0.85rem; color: var(--accent); font-weight: 700; margin-bottom: 8px;
+}
+
+.contact { text-align: center; }
+.contact p { color: var(--muted); margin: 0 auto 24px; max-width: 520px; }
+
+footer {
+  border-top: 1px solid var(--border); padding: 24px 0;
+  text-align: center; color: var(--muted); font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+  .nav ul { gap: 12px; font-size: 0.85rem; }
+  .hero { padding: 64px 0 48px; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container">
+    <a class="logo" href="#beranda">san3pedia</a>
+    <ul>
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#layanan">Layanan</a></li>
+      <li><a href="#proyek">Proyek</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <div class="hero" id="beranda">
+      <span class="tag">Pengembang Web &amp; Pembuat Aplikasi</span>
+      <h1>Saya membantu bisnis Anda punya aplikasi web yang cepat dan mudah dipakai.</h1>
+      <p>Dari ide hingga aplikasi siap dipakai. Saya membangun website, dashboard, dan aplikasi web yang rapi, responsif, dan siap dikembangkan lebih lanjut.</p>
+      <a class="btn btn-primary" href="#kontak">Konsultasi Gratis</a>
+      <a class="btn btn-ghost" href="#proyek">Lihat Proyek</a>
+    </div>
+
+  </div>
+
+  <section id="tentang">
+    <div class="container about">
+      <div>
+        <h2>Tentang Saya</h2>
+        <p>Saya pengembang web yang fokus membuat aplikasi untuk kebutuhan nyata: sistem pemesanan, katalog produk, dashboard manajemen, hingga aplikasi internal perusahaan.</p>
+        <p>Saya mengutamakan kode yang bersih, tampilan yang sederhana, dan komunikasi yang jelas sepanjang proyek berjalan.</p>
+      </div>
+      <div class="skills">
+        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span>
+        <span>Node.js</span><span>Database SQL</span><span>REST API</span><span>Git</span>
+        <span>Responsive Design</span><span>Deployment</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="layanan">
+    <div class="container">
+      <h2>Layanan Pembuatan Aplikasi</h2>
+      <p class="lead">Pilih layanan sesuai kebutuhan Anda. Harga contoh bersifat ilustrasi dan akan disesuaikan dengan ruang lingkup proyek.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Website Company Profile</h3>
+          <p>Website profesional untuk memperkenalkan bisnis, layanan, dan kontak Anda secara online.</p>
+          <div class="price">Mulai dari Rp 3.000.000</div>
+        </div>
+        <div class="card">
+          <h3>Aplikasi Web Custom</h3>
+          <p>Aplikasi berbasis web sesuai alur kerja bisnis Anda, termasuk login, data, dan laporan.</p>
+          <div class="price">Mulai dari Rp 10.000.000</div>
+        </div>
+        <div class="card">
+          <h3>Dashboard &amp; Admin Panel</h3>
+          <p>Panel pengelolaan data untuk memantau transaksi, pengguna, dan konten dengan mudah.</p>
+          <div class="price">Mulai dari Rp 7.000.000</div>
+        </div>
+        <div class="card">
+          <h3>Integrasi &amp; API</h3>
+          <p>Menghubungkan aplikasi dengan pembayaran, layanan pihak ketiga, atau sistem yang sudah ada.</p>
+          <div class="price">Sesuai kebutuhan</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proyek">
+    <div class="container">
+      <h2>Proyek Pilihan</h2>
+      <p class="lead">Contoh pekerjaan terdahulu. Ganti dengan proyek Anda sendiri.</p>
+      <div class="grid">
+        <article class="card project">
+          <div class="thumb"></div>
+          <div class="meta">Aplikasi Web · 2025</div>
+          <h3>Sistem Pemesanan Online</h3>
+          <p>Aplikasi pemesanan untuk usaha kuliner dengan keranjang belanja, pembayaran, dan notifikasi pesanan.</p>
+          <div class="stack"><span>React</span><span>Node.js</span><span>PostgreSQL</span></div>
+        </article>
+        <article class="card project">
+          <div class="thumb"></div>
+          <div class="meta">Dashboard · 2025</div>
+          <h3>Dashboard Keuangan UMKM</h3>
+          <p>Dashboard pencatatan pemasukan dan pengeluaran dengan grafik dan laporan bulanan.</p>
+          <div class="stack"><span>JavaScript</span><span>Chart.js</span><span>REST API</span></div>
+        </article>
+        <article class="card project">
+          <div class="thumb"></div>
+          <div class="meta">Website · 2024</div>
+          <h3>Website Profil Perusahaan</h3>
+          <p>Website responsif dengan halaman layanan, galeri, dan formulir kontak terintegrasi.</p>
+          <div class="stack"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="proses">
+    <div class="container">
+      <h2>Alur Kerja</h2>
+      <p class="lead">Proses yang transparan agar Anda selalu tahu progres proyek.</p>
+      <div class="grid steps">
+        <div class="card"><h3>Diskusi Kebutuhan</h3><p>Memahami tujuan, fitur, dan target pengguna aplikasi Anda.</p></div>
+        <div class="card"><h3>Desain &amp; Perencanaan</h3><p>Membuat rancangan tampilan dan alur sebelum mulai membangun.</p></div>
+        <div class="card"><h3>Pengembangan</h3><p>Membangun aplikasi dengan update berkala agar Anda bisa memberi masukan.</p></div>
+        <div class="card"><h3>Peluncuran</h3><p>Deploy ke server, uji akhir, dan serah terima beserta dokumentasi.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontak" class="contact">
+    <div class="container">
+      <h2>Mari Wujudkan Aplikasi Anda</h2>
+      <p>Ceritakan ide Anda dan saya akan membantu merencanakan langkah berikutnya. Konsultasi awal tanpa biaya.</p>
+      <a class="btn btn-primary" href="https://github.com/san3pedia">Kirim Email</a>
+      <a class="btn btn-ghost" href="https://github.com/san3pedia">WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">© 2026 san3pedia · Pengembang Web</div>
+</footer>
+
+</body>
+</html>
